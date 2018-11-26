@@ -1,0 +1,44 @@
+<div class="tab-box">
+  <div class="tab-head">
+    <h5 class="tite">MARKETS</h5>
+  </div>
+  <div class="tab-inner">
+    <div class="content">
+      <div class="dataTables_filter">
+        <label>
+          Search:
+          <input type="search" class="form-control form-control-sm search-tokens" placeholder="">
+        </label>
+      </div>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="r-eth-tab" data-toggle="tab" href="#r-eth" role="tab" aria-controls="r-eth" aria-selected="false">ETH</a>
+        </li>
+        <li><a class="nav-link" id="r-wbtc-tab" data-toggle="tab" href="#r-wbtc-tab" data-trigger="focus" role="tab" aria-controls="r-eth" aria-selected="false" title="BTC Trading Pairs..." data-content="BTC Trading Pairs coming soon..">WBTC</a>
+          
+          
+          
+        </li>
+        
+        
+        
+        
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="r-btc" role="tabpanel" aria-labelledby="r-btc-tab">
+          <table class="table row-border right-data-table table-hover" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th width="120">Coin</th>
+                <th>Price</th>
+                <th>Volume</th>
+                <th>Change</th>
+              </tr>
+            </thead>
+            <tbody class="js-markets"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

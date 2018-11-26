@@ -1,0 +1,37 @@
+@model string
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <h5 class="order-title">SELL ORDERS <span>Total: <b class="js-totalsell"></b> @(Model)</span></h5>
+    <div class="order-table color-table">
+      <table class="table table-striped order-table-fixed">
+        <thead>
+          <tr>
+            <th>@Model</th>
+            <th>Price (ETH)</th>
+            <th>Total (ETH)</th>
+            <th>Volume (@Model)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="js-sellorders"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <h5 class="order-title">BUY ORDERS <span>Total: <b class="js-totalbuy"></b> ETH</span></h5>
+    <div class="order-table color-table">
+      <table class="table table-striped order-table-fixed">
+        <thead>
+          <tr>
+            <th>@Model</th>
+            <th>Price (ETH)</th>
+            <th>Total (ETH)</th>
+            <th>Volume (@Model)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="js-buyorders"></tbody>
+      </table>
+    </div>
+  </div>
+</div>

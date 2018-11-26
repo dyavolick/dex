@@ -1,0 +1,55 @@
+@model string
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <h5 class="order-title">TRADE HISTORY</h5>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 text-right">
+        <br>
+        <ul class="nav nav-tabs btn-tab" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="r-ETH-tab" data-toggle="tab" href="#mar-trades" role="tab" aria-controls="mar-trades" aria-selected="false">Market Trades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="my-trades-tab" data-toggle="tab" href="#my-trades" role="tab" aria-controls="r-eth" aria-selected="false">My Trades</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="mar-trades" role="tabpanel" aria-labelledby="mar-trades-tab">
+        <div class="order-table color-table">
+          <table class="table table-striped order-table-fixed">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Price (ETH)</th>
+                <th>Amount (@Model)</th>
+                <th>Total (ETH)</th>
+              </tr>
+            </thead>
+            <tbody class="js-trades"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="my-trades" role="tabpanel" aria-labelledby="my-trades-tab">
+        <div class="order-table color-table">
+          <table class="table table-striped order-table-fixed">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Price (ETH)</th>
+                <th>Amount (@Model)</th>
+                <th>Total (ETH)</th>
+              </tr>
+            </thead>
+            <tbody class="js-mytrades"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

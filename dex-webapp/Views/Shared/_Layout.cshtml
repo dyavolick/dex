@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+  <title>Tradex</title>
+  <meta name="author" content="TradexOne">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="">
+  <meta name="theme-color" content="#310f72">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="~/img/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="~/img/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="~/img/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="~/img/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="~/img/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="~/img/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="~/img/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="~/img/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="~/img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="~/img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="~/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="~/img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="~/img/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="~/img/favicon/ms-icon-144x144.png">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+  <!-- Color Switch -->
+  <link rel="stylesheet" href="~/css/jquery.colorpanel.css">
+  <!-- Default Style CSS -->
+  <link rel="stylesheet" type="text/css" href="~/css/default.css">
+  <link rel="stylesheet" type="text/css" href="~/css/responsive.css">
+  <!-- Color Skin -->
+  <link rel="stylesheet" type="text/css" id="cpswitch" href="~/css/skins/default.css">
+  <link rel="stylesheet" type="text/css" href="~/css/site.css" asp-append-version="true">
+
+  @*<environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>*@
+
+
+
+
+
+  <!--Responsive iframe chat-->
+  <script type="text/javascript">
+    function iframeLoaded() {
+      var iFrameID = document.getElementById('idIframe');
+      if (iFrameID) {
+
+        iFrameID.height = "";
+        iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+      }
+    }
+  </script>
+  <!--responsive iframe end-->
+  <!--Modal Styles-->
+  <style>
+    .modal-header, h4, .close {
+      background-color: #188a91;
+      color: white !important;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .modal-footer {
+      background-color: #f9f9f9;
+    }
+  </style>
+  <!--Modal Styles End-->
+  <!--Popover Styles Start-->
+  <style>
+    /* Popover */
+    .popover {
+      border: 2px dotted lightgreen;
+    }
+    /* Popover Header */
+    .popover-title {
+      background-color: #73AD21;
+      color: #FFFFFF;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* Popover Arrow */
+    .arrow {
+      border-right-color: lightgreen !important;
+    }
+  </style>
+  <!--Popover Styles End-->
+
+  <style>
+
+    #myfees {
+      -vendor-animation-duration: 3s;
+      -vendor-animation-delay: 2s;
+      -vendor-animation-iteration-count: infinite;
+    }
+  </style>
+
+
+
+</head>
+
+<body id="wrapper">
+  <div id="colorPanel" class="colorPanel">
+    <a id="cpToggle" href="#"></a>
+    <ul></ul>
+  </div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img class="logo" src="~/img/logo.png" alt=""></a>
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarToggler">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"><span class="name">EXCHANGE</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto ">
+          <li class="nav-item">
+
+            <a class="nav-link" data-toggle="modal" data-backdrop="false" href="#myModal">Faq</a>
+          </li>
+
+
+
+          <li>
+            <a class="nav-link LinkSignin" href="#" data-toggle="modal" data-target="#NoInstallMetamask">Signin</a>
+            <a class="nav-link LinkSigninBlocked" href="#" data-toggle="modal" data-target="#BlockedMetamask">Signin</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  @RenderBody()
+  <footer>
+    <div class="container content">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12 links">
+          <h5>ABOUT Tradex</h5>
+          <ul>
+            <li><a data-toggle="modal" data-backdrop="true" href="#myfees">Fees</a></li>
+
+            <li><a data-toggle="modal" data-backdrop="true" href="#mydisclaimer">Disclaimer</a></li>
+
+
+          </ul>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12 links">
+          <h5>SUPPORT</h5>
+          <ul>
+            <li><a href="mailto:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#116;&#114;&#097;&#100;&#101;&#120;&#046;&#111;&#110;&#101;">Contact Support</a></li>
+
+
+
+
+            <li><a data-toggle="modal" data-backdrop="true" href="#myModal">FAQ<i class="fa fa-eye ml-1">g</i></a></li>
+
+
+
+          </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!--Token Listing Form Start-->
+        <div class="col-md-3 col-sm-6 col-xs-12 links">
+          <h5>Token Listing!</h5>
+          <ul>
+
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfwgP6dEHwn_fTv_UxZKX2BWYLvZZ1kaOZ1wbcyeV3o9VYiMA/viewform" target="_blank">Add Token</a></li>
+
+          </ul>
+        </div>
+        <!--Token Listing Form END-->
+
+
+
+
+
+
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12 copy">
+          <img class="footer-logo" src="~/img/logo.png">
+          @{
+            TimeZoneInfo tzi = TimeZoneConverter.TZConvert.GetTimeZoneInfo("Central European Standard Time");
+            var serverTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
+          }
+
+          <p><span>Server time: </span>@serverTime <span>UTC + 1</span></p>
+
+          <p>&copy; 2019 Tradex.one All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </footer>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+  <script src="~/js/system.js"></script>
+  <script src="~/js/toastr.min.js"></script>
+  <script src="~/js/web3.min.js"></script>
+  <script src="~/js/bundle.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js">
+  </script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js">
+  </script>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <!-- Color Switcher -->
+  <script type="text/javascript" src="~/js/jquery.colorpanel.js"></script>
+  <!-- Custom Scripts -->
+  <script type="text/javascript" src="~/js/script.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      SystemJS.config({
+        baseURL: "/ts",
+        packages: { "/ts": { defaultExtension: 'js' } }
+      });
+    });
+  </script>
+
+  @RenderSection("Scripts", required: false)
+  <!-- Trigger the modal with a button -->
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          </font>
+
+
+
+          <h4 class="modal-title">Tradex FAQ</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            Tradex.one is a decentralized exchange for trading Ethereum (ERC-20) tokens. Its Easy how you get paid to trade on Tradex.one!<br><br>
+
+            To get started:<br><b>
+
+              1. Unlock your Ethereum wallet (Metamask, Nano Ledger)<br>
+              2. Deposit tokens on the exchange<br>
+              3. You need also some ETH deposit on our DEX.<br>
+              4. Start trading and earn rewards<br><br>
+
+              <font color="blue">FOR SECURITY REASON IT TAKES BETWEEN 3-5 MINUTES BEFORE YOU SEE YOUR ACTIONS/ORDERS ON TRADEX.</font> <br><br>
+            </b>
+            <font color="red">We don't store your keys, we won't be able to restore your wallet in case you clear your browser's storage (Cookies..), change the device or lose your wallet.</font><br><br>
+            Tradex.one is faster and more user-friendly than other decentralized exchanges.<br><br>
+
+
+            If you have any questions, please contact us in our chat box or send us an email.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Close</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Trigger the modal with a button -->
+  <!-- Central Modal Medium Success -->
+  <div class="modal fade" id="myfees" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-success" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <p class="heading lead">Tradex FEES</p>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="fa fa-check fa-4x mb-3 animated bounceOutLeft"></i>
+            <p>Tradex.one has one of the lowest in all types of crypto exchanges.</p>
+          </div>
+        </div>
+
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+
+          <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">close</a>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!-- Central Modal Medium Success-->
+  <!-- Modal -->
+  <div class="modal fade" id="mydisclaimer" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          </font>
+
+          <h4 class="modal-title">Tradex DISCLAIMER</h4>
+        </div>
+        <div class="modal-body">
+          <p><p>
+            Tradex.one is a decentralized trading platform that lets you trade Ether and Ethereum-based tokens directly with other users.<br> <br>
+            <font color="red">You are responsible for your own account, funds, and private keys. You are responsible for your own trading decisions, and the details and mechanics of the tokens you trade.</font><br> <br>
+            Tradex.one is not responsible for your decisions, actions, or losses that result from using Tradex.one Plattform.<br><br> Tradex.one makes no guarantee about the tokens that you trade
+            using Tradex.one.<br><br> Tradex.one does not hold your funds and does not offer refunds.<br><br> While the information contained on Tradex.one is periodically updated, no guarantee is given
+            that the information provided on Tradex.one is correct, complete, or up-to-date. <br><br><font color="red">By using Tradex.one, you acknowledge this and agree to these terms. 2019.</font>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Close</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Popover ScriptStart -->
+  <script>
+    $(document).ready(function () {
+      $('[data-toggle="tab"]').popover();
+    });
+  </script>
+  <!-- Popover Script End-->
+
+
+
+
+</body>
+</html>

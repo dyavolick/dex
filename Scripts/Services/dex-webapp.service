@@ -1,0 +1,14 @@
+[Unit] 
+Description=Dex Webapp
+
+[Service] 
+WorkingDirectory=/var/Dex-Webapp
+ExecStart=/usr/bin/dotnet /var/Dex-Webapp/dex-webapp.dll
+Restart=always 
+RestartSec=10
+SyslogIdentifier=Dex Webapp
+User=root 
+Environment=ASPNETCORE_ENVIRONMENT=Development
+
+[Install] 
+WantedBy=multi-user.target

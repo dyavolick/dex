@@ -1,0 +1,111 @@
+﻿@model string
+<div class="modal js-buymodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Buy Order</h5>
+        <button type="button" class="close js-closemodal" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="hidden" class="js-feevalue"/>
+          <div class="form-group">
+            <label class="trn" data-trn-key="order">Order</label>
+            <div><span class="js-avaliableamount"></span>&nbsp;@Model&nbsp; <span class="js-price"></span>&nbsp;@Model/ETH
+            </div>
+            <div>
+              Expires in <span class="js-expires"></span>&nbsp;<span class="trn" data-trn-key="blocks">blocks</span>
+            </div>
+            <div>
+              Avalibable amount <span class="js-avaliablevolume"></span>&nbsp;ETH
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="trn" data-trn-key="amount_to_buy">Amount to buy</label>
+            <div class="input-group">
+              <input type="text" class="form-control js-amount" placeholder="Amount" value="1.000" data-trn-key-placeholder="amount" data-trn-key="">
+              <div class="input-group-append">
+                <span class="input-group-text">@Model</span>
+              </div>
+            </div><font color="red" size="2">For Security Reason it takes between 3-5 minutes before you see your Actiosn/Orders on Tradex.</font>
+          </div>
+          <div class="form-group">
+            <label>ETH</label>
+            <input type="text" class="form-control js-eth" value="0.044" readonly="" data-trn-key="">
+          </div>
+          <div class="form-group">
+            <label>Fee</label>
+            <div class="input-group">
+              <input type="text" class="form-control js-fee" value="0.000" readonly="" data-trn-key="">
+              <div class="input-group-append">
+                <span class="input-group-text">ETH</span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary js-submitrade">Save changes</button>
+        <button type="button" class="btn btn-secondary js-closemodal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal js-sellmodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sell Order</h5>
+        <button type="button" class="close js-closemodal" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="hidden" class="js-feevalue"/>
+          <div class="form-group">
+            <label class="trn" data-trn-key="order">Order</label>
+            <div><span class="js-avaliableamount"></span>&nbsp;@Model&nbsp; <span class="js-price"></span>&nbsp;@Model/ETH
+            </div>
+            <div>
+              Expires in <span class="js-expires"></span>&nbsp;<span class="trn" data-trn-key="blocks">blocks</span>
+            </div>
+            <div>
+              Avalibable amount <span class="js-avaliablevolume"></span>&nbsp;@Model
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="trn" data-trn-key="amount_to_buy">Amount to sell</label>
+            <div class="input-group">
+              <input type="text" class="form-control js-amount" placeholder="Amount" value="1.000" data-trn-key-placeholder="amount" data-trn-key="">
+              <div class="input-group-append">
+                <span class="input-group-text">@Model</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>ETH</label>
+            <input type="text" class="form-control js-eth" value="0.044" readonly="" data-trn-key="">
+          </div>
+          <div class="form-group">
+            <label>Fee</label>
+            <div class="input-group">
+              <input type="text" class="form-control js-fee" value="0.000" readonly="" data-trn-key="">
+              <div class="input-group-append">
+                <span class="input-group-text">@Model</span>
+              </div>
+            </div><font color="red" size="2">For Security Reason it takes between 3-5 minutes before you see your Action/Orders on Tradex.</font>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary js-submitrade">Save changes</button>
+        <button type="button" class="btn btn-secondary js-closemodal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

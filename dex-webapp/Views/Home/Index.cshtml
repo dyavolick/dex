@@ -1,0 +1,294 @@
+@model TokenModel
+@{
+  ViewData["Title"] = "Home Page";
+  string tokenSymbol = Model?.Symbol ?? "null";
+  string tokenAddress = Model?.Token ?? "";
+}
+<script>
+    window.tokenSymbol = "@tokenSymbol";
+    window.tokenAddress = "@tokenAddress";
+</script>
+<input type="hidden" class="js-tokenname" value="@tokenSymbol" />
+<input type="hidden" class="js-tokenaddress" value="@tokenAddress" />
+<div class="page-container">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-md-9 col-sm-8 col-xs-12">
+        <div class="row chart-title-head">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="chart-title">
+              <h6 class="name">@tokenSymbol Exchange</h6>
+              @*<p class="code">XRP/ETH</p>*@
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="chart-hilights">
+              <div class="row">
+                <div class="lastPrice">
+                  <div class="name">Last Price</div>
+                  <div class="info js-lastprice">0.00000000</div>
+                </div>
+                <div class="change">
+                  <div class="name">24hr Change</div>
+                  <div class="info js-difference">0.00%</div>
+                </div>
+                <div class="high">
+                  <div class="name">24hr High</div>
+                  <div class="info js-maxprice">0.00000000</div>
+                </div>
+                <div class="low no-border">
+                  <div class="name">24hr Low</div>
+                  <div class="info js-minprice">0.00000000</div>
+                </div>
+              </div>
+              <div class="row no-border">
+                <div class="volume no-border">
+                  <div class="name">24hr Volume:</div>
+                  <div class="info js-lastvolume"><strong>0.00000000</strong> <span class="name name1">ETH</span> / <strong>0.00000000</strong> <span class="name name2">@tokenSymbol  / <strong>0.00000000</strong> USD</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+              <div id="tradingview_35f2b"></div>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div id="deposit-withdraw-tabs" class="container">
+              <ul class="nav nav-pills">
+                <li><a href="#1a" data-toggle="tab" class="active"><h5 class="title"><button type="button" class="btn btn-outline-primary">DEPOSIT</button></h5></a></li>
+                <li><a href="#2a" data-toggle="tab"><h5 class="title"><button type="button" class="btn btn-outline-info">WITHDRAW</button></h5></a></li>
+             <li><a href="#a3"><h5 class="title"><button type="button" class="btn btn-outline-danger">MY ORDERS</button></h5></a></li>
+             
+              </ul>
+              <div class="tab-content clearfix">
+                <div class="tab-pane active" id="1a">
+                  @* deposit *@
+                  <div class="form-box">
+                    <div class="form-head">
+                      <p><b>Wallet balance:</b> <span class="userWalletEthBalance">-</span>&nbsp; ETH, <span class="userWalletTokenBalance">-</span>&nbsp; @tokenSymbol</p>
+                      <p><b>Tradex balance:</b> <span class="tradexEthBalance">-</span>&nbsp; ETH, <span class="tradexTokenBalance">-</span>&nbsp; @tokenSymbol</p>
+                    </div>
+                    <div class="form-inner">
+                      <div class="content">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" id="depositEthInput" placeholder="Amount">
+                          <div class="input-group-append">
+                            <span class="input-group-text">ETH <img src="https://www.tradex.one/img/Ethereum.png" width="15" height="15"></span>
+                          </div>
+                        </div>
+                        <p class="info-link">Fee: <a href="#"><span class="feeDeposit">-</span>%</a></p>
+                        <p class="text-right">
+                          <button class="btn btn-primary" id="depositEthBtn">Deposit ETH</button>
+                        </p>
+                        <hr />
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" id="depositTokenInput" placeholder="Amount">
+                          <div class="input-group-append">
+                            <span class="input-group-text"> @tokenSymbol</span>
+                          </div>
+                        </div>
+                        <p class="info-link">Fee: <a href="#"><span class="feeDeposit">-</span>%</a></p>
+                        <p class="text-right">
+                          <button class="btn btn-primary" id="depositTokenBtn">Deposit @tokenSymbol</button>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="2a">
+                  @* withdraw *@
+                  <div class="form-box">
+                    <div class="form-head">
+                      <p><b>Wallet balance:</b> <span class="userWalletEthBalance">-</span>&nbsp; ETH, <span class="userWalletTokenBalance">-</span>&nbsp; @tokenSymbol</p>
+                      <p><b>Tradex balance:</b> <span class="tradexEthBalance">-</span>&nbsp; ETH, <span class="tradexTokenBalance">-</span>&nbsp; @tokenSymbol</p>
+                    </div>
+                    <div class="form-inner">
+                      <div class="content">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" id="withdrawEthInput" placeholder="Amount">
+                          <div class="input-group-append">
+                            <span class="input-group-text">ETH <img src="https://www.tradex.one/img/Ethereum.png" width="15" height="15"></span>
+                          </div>
+                        </div>
+                        <p class="info-link">Fee: <a href="#"><span class="feeWithdraw">-</span>%</a></p>
+                        <p class="text-right">
+                          <button class="btn btn-primary" id="withdrawEthBtn">Withdraw ETH</button>
+                        </p>
+                        <hr />
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" id="withdrawTokenInput" placeholder="Amount">
+                          <div class="input-group-append">
+                            <span class="input-group-text"> @tokenSymbol</span>
+                          </div>
+                        </div>
+                        <p class="info-link">Fee: <a href="#"><span class="feeWithdraw">-</span>%</a></p>
+                        <p class="text-right">
+                          <button class="btn btn-primary" id="withdrawTokenBtn">Withdraw @tokenSymbol</button>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                
+                <div class="tab-pane" id="a3">
+                  @* MyOpenOrders *@
+                  <div class="form-box">
+                    <div class="form-head">
+                      <p><b>Wallet balance:</b> <span class="userWalletEthBalance">-</span>&nbsp; ETH, <span class="userWalletTokenBalance">-</span>&nbsp; @tokenSymbol</p>
+                      <p><b>Tradex balance:</b> <span class="tradexEthBalance">-</span>&nbsp; ETH, <span class="tradexTokenBalance">-</span>&nbsp; @tokenSymbol</p>
+                    </div>
+                    <div class="form-inner">
+                      <div class="content">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" id="withdrawEthInput" placeholder="Amount">
+                          <div class="input-group-append">
+                            <span class="input-group-text">ETH <img src="https://www.tradex.one/img/Ethereum.png" width="15" height="15"></span>
+                          </div>
+                        </div>
+                        <p class="info-link">Fee: <a href="#"><span class="feeWithdraw">-</span>%</a></p>
+                        <p class="text-right">
+                          <button class="btn btn-primary" id="withdrawEthBtn">Withdraw ETH</button>
+                        </p>
+                        <hr />
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" id="withdrawTokenInput" placeholder="Amount">
+                          <div class="input-group-append">
+                            <span class="input-group-text"> @tokenSymbol</span>
+                          </div>
+                        </div>
+                        
+                        </p>
+                
+                
+                
+                
+              
+            </div>
+          </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                </div>
+            
+        
+          
+          
+          
+          <partial name="_CreateOrderPartial" model="@tokenSymbol" />
+        </div>
+        <partial name="_OrdersPartial" model="@tokenSymbol" />
+        <partial name="_MyOrdersPartial" model="@tokenSymbol" />
+        <partial name="_TradesPartial" model="@tokenSymbol" />
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-12">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <partial name="_MarketsPartial" />
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="news-box">
+                  <div class="news-head">
+                    <h5 class="tite">CHATROOM -beta-</h5>
+                  </div>
+                  <div class="news-inner">
+                    <div class="content">
+                      <div class="news-list">
+                        <div id="tradechat">
+                          <script id="chatBroEmbedCode">
+                            /* Chatbro Widget Embed Code Start */
+                            function ChatbroLoader(chats, async) { async = !1 !== async; var params = { embedChatsParameters: chats instanceof Array ? chats : [chats], lang: navigator.language || navigator.userLanguage, needLoadCode: 'undefined' == typeof Chatbro, embedParamsVersion: localStorage.embedParamsVersion, chatbroScriptVersion: localStorage.chatbroScriptVersion }, xhr = new XMLHttpRequest; xhr.withCredentials = !0, xhr.onload = function () { eval(xhr.responseText) }, xhr.onerror = function () { console.error('Chatbro loading error') }, xhr.open('GET', '//www.chatbro.com/embed.js?' + btoa(unescape(encodeURIComponent(JSON.stringify(params)))), async), xhr.send() }
+                            /* Chatbro Widget Embed Code End */
+                            ChatbroLoader({ encodedChatId: '02gSj' });
+                          </script>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br><br> <a class="twitter-timeline" data-width="450" data-height="620" href="https://twitter.com/TradexOne?ref_src=twsrc%5Etfw">News by TradexOne</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<partial name="_MetamaskModalsPartial" />
+<partial name="_TradeModalPartial" model="@tokenSymbol"/>
+
+@section Scripts{
+  <script src="~/lib/signalr/signalr.js"></script>
+  <script type="text/javascript" src="~/charting_library/charting_library.min.js"></script>
+  <script type="text/javascript" src="~/charting_library/datafeeds/udf/dist/polyfills.js"></script>
+  <script type="text/javascript" src="~/charting_library/datafeeds/udf/dist/bundle.js"></script>
+  <script type="text/javascript" src="/js/tradingView.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $('#colorPanel').ColorPanel({
+        styleSheet: '#cpswitch',
+        animateContainer: '#wrapper',
+        colors: {
+          '#0b7076': 'css/skins/default.css',
+          '#4b77be': 'css/skins/blue.css',
+          '#16a085': 'css/skins/seagreen.css',
+        }
+      });
+    });
+    $(function () {
+      SystemJS.import('Main/Account').then(function (m) {
+        m.initialize();
+      });
+      SystemJS.import('Main/Markets').then(function (m) {
+        m.initialize();
+      });
+      SystemJS.import('Main/Deposit').then(function (m) {
+        m.initialize();
+      });
+      SystemJS.import('Main/MyOrders').then(function (m) {
+        m.initialize();
+      });
+      SystemJS.import('Main/Orders').then(function (m) {
+        m.initialize();
+      });
+      SystemJS.import('Main/Trades').then(function (m) {
+        m.initialize();
+      });
+      SystemJS.import('Main/Statistics').then(function (m) {
+        m.initialize();
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    (function (n, v, g) {
+      o = 'Navegg'; if (!n[o]) {
+        a = v.createElement('script'); a.src = g; b = document.getElementsByTagName('script')[0];
+        b.parentNode.insertBefore(a, b); n[o] = n[o] || function (parms) {
+          n[o].q = n[o].q || []; n[o].q.push([this, parms])
+        };
+      }
+    })
+      (window, document, 'https://tag.navdmp.com/universal.min.js');
+    window.naveggReady = window.naveggReady || [];
+    window.nvg53639 = new Navegg({
+      acc: 53639
+    });
+  </script>
+
+}

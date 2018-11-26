@@ -1,0 +1,47 @@
+#deposit-withdraw-tabs > ul {
+    margin-top: 28px;
+    padding-top: 15px;
+    background-color: #eaebeb;
+}
+
+#deposit-withdraw-tabs > ul > li {
+    padding: 5px 15px;
+    font-size: 16px;
+}
+
+
+#deposit-withdraw-tabs > ul > li > a.active:link {
+    color: black;
+}
+
+#deposit-withdraw-tabs > .tab-content {
+    margin-top: -27px;
+}
+
+.LinkSignin,
+.LinkSigninBlocked {
+    display: none;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+.tbl-link {
+    font-weight: bold;
+    text-decoration: none !important;
+}
+.tbl-link.buy {
+    color: green;
+}
+.tbl-link.sell {
+    color: red;
+}
+.table tr {
+    font-weight: bold
+}
+.table tr.sell {
+    color: #ff0000;
+}
+.table tr.buy {
+    color: green;
+}

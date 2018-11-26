@@ -1,0 +1,85 @@
+@model string
+<div class="col-md-4 col-sm-4 col-xs-12">
+  <div class="form-box create-buy-order">
+    <div class="form-head">
+      <h5 class="title">BUY @Model</h5>
+      <p><b>You have :</b> <span class="tradexEthBalance">-</span>&nbsp;ETH</p>
+      <p><b>Lowest Ask :</b>&nbsp;<span class="lowest-sell">-</span>&nbsp;</p>
+    </div>
+    <div class="form-inner">
+      <div class="content">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control order-price" placeholder="Price">
+          <div class="input-group-append">
+            <span class="input-group-text"><img src="https://www.tradex.one/img/Ethereum.png" width="15" height="15"></span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control order-amount" placeholder="Amount">
+          <div class="input-group-append">
+            <span class="input-group-text">@Model</span>
+          </div>
+        </div>
+        <hr>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control order-total" placeholder="Total" disabled>
+          <div class="input-group-append">
+            <span class="input-group-text"><img src="https://www.tradex.one/img/Ethereum.png" width="15" height="15"></span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" value="10000" class="form-control order-expires" placeholder="Expires">
+          <div class="input-group-append">
+            <span class="input-group-text">Blocks</span>
+          </div>
+        </div>
+        <p class="info-link">Fees: <a href="#"><span class="feeMake">-</span>/<span class="feeTake">-</span>%</a></p>
+        <br><p class="text-right">
+          <button class="btn btn-primary btn-block btn btn-success btn-submit" id="createBuyOrderBtn" disabled><b>Buy</b></button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+  <div class="form-box create-sell-order">
+    <div class="form-head">
+      <h5 class="tite">SELL @Model</h5>
+      <p><b>You have :</b> <span class="tradexTokenBalance">-</span>&nbsp;@Model</p>
+      <p><b>Highest Bid :</b> <span class="highest-buy">-</span></p>
+    </div>
+    <div class="form-inner">
+      <div class="content">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control order-price" placeholder="Price">
+          <div class="input-group-append">
+            <span class="input-group-text"><img src="https://www.tradex.one/img/Ethereum.png" width="15" height="15"></span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control order-amount" placeholder="Amount">
+          <div class="input-group-append">
+            <span class="input-group-text">@Model</span>
+          </div>
+        </div>
+        <hr>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control order-total" placeholder="Total" disabled>
+          <div class="input-group-append">
+            <span class="input-group-text"><img src="https://www.tradex.one/img/Ethereum.png" width="15" height="15"> </span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" value="10000" class="form-control order-expires" placeholder="Expires">
+          <div class="input-group-append">
+            <span class="input-group-text">Blocks</span>
+          </div>
+        </div>
+        <p class="info-link">Fees: <a href="#"><span class="feeMake">-</span>/<span class="feeTake">-</span>%</a></p>
+        <br><p class="text-right">
+          <button class="btn btn-primary btn-block btn btn-danger btn-submit" id="createSellOrderBtn" disabled><b>Sell</b></button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

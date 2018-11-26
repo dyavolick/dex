@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "module": "system",
+    "target": "es6",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "outDir": "./wwwroot/ts"
+  },
+  "compileOnSave": true,
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [ "./Typescript/**/*.ts" ]
+}
